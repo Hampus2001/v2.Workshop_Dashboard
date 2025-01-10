@@ -1,13 +1,8 @@
 import DropdownComponent from "./assets/Component/DropdownComponent";
-import PopoverComponent from "./assets/Component/PopoverComponent";
 import CardComponent from "./assets/Component/CardComoponent";
 import RecentSalesComponent from "./assets/Component/RecentSalesComponent";
 import AvatarButtonComponent from "./assets/Component/AvatarButtonComponent";
 import Search from "./assets/Component/SearchComonent";
-import { CheckCircledIcon } from "@radix-ui/react-icons";
-import { LightningBoltIcon } from "@radix-ui/react-icons";
-import { PersonIcon } from "@radix-ui/react-icons";
-import { CardStackIcon } from "@radix-ui/react-icons";
 import { OverviewComponent } from "./Overview";
 
 export default function App() {
@@ -74,12 +69,15 @@ export default function App() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center p-10">
+      <div
+        id="Dashboard"
+        className="flex flex-col justify-center items-center p-10"
+      >
         <div
           id="topNav"
           className="flex flex-row justify-between items-center w-10/12 p-3 border-solid-gray-200 border-t-2 border-l-2 border-r-2 rounded-t-md"
         >
-          <div id="leftSide" className="flex flex-row gap-5">
+          <div id="leftSideNav" className="flex flex-row gap-5">
             <DropdownComponent profile={profiles.names.accountUser.name} />
             <button>Overview</button>
             <button className="text-gray-500 hover:text-black">
@@ -89,7 +87,7 @@ export default function App() {
             <button className="text-gray-500 hover:text-black">Settings</button>
           </div>
 
-          <div id="RightSide" className="flex gap-2 items-center">
+          <div id="RightSideNav" className="flex gap-2 items-center">
             <Search />
             <AvatarButtonComponent
               personImages={profiles.names.profileOne.image}
@@ -98,16 +96,19 @@ export default function App() {
         </div>
 
         <div
-          id="container"
+          id="dashboardContainer"
           className=" flex flex-col justify-between w-10/12 p-8 border-2 border-solid-gray-200 gap-5 rounded-b-md"
         >
-          <div className="flex flex-row justify-between">
+          <div id="titleAndDownload" className="flex flex-row justify-between">
             <h1 className="text-3xl font-bold py-2">Dashboard</h1>
             <button className="flex items-center h-8 text-white bg-black px-4 rounded-md">
               Download
             </button>
           </div>
-          <div className="flex flex-row w-1/4 justify-between py-1 px-2 rounded-md bg-gray-100">
+          <div
+            id="overViewButtons"
+            className="flex flex-row w-1/4 justify-between py-1 px-2 rounded-md bg-gray-100"
+          >
             <button className="bg-white px-2 py-1 rounded-md shadow-md">
               Overview
             </button>
@@ -117,7 +118,7 @@ export default function App() {
           </div>
 
           <div
-            id="cards"
+            id="infoCards"
             className="flex flex-row w-full justify-between gap-5"
           >
             <CardComponent
@@ -143,7 +144,7 @@ export default function App() {
           </div>
 
           <div
-            id="charts"
+            id="ChartsAndRecentSales"
             className="flex flex-row text-black font-semibold w-full gap-5"
           >
             <div className="flex flex-col w-3/5 p-5 border-2 border-solid border-gray-200 rounded-xl">
